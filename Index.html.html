@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emmanuel Nyanchoka | Educator & Computer Studies Teacher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green: #1a6b3c;
+      --green-light: #2d9058;
+      --gold: #c9a227;
+      --gold-light: #f0c84b;
+      --cream: #f9f5ed;
+      --dark: #13201a;
+      --text: #2c3e30;
+      --muted: #6b7e72;
+      --white: #ffffff;
+      --card-bg: #ffffff;
+      --border: #d6e8db;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,107,60,0.97);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900; font-size: 1.25rem;
+      color: var(--gold-light);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, #1a4a2e 55%, var(--green) 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Decorative circle */
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,162,39,0.2);
+      right: -150px; top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 800px;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(201,162,39,0.15);
+      border: 1px solid rgba(201,162,39,0.5);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name span { color: var(--gold-light); }
+
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-desc {
+      color: rgba(255,255,255,0.65);
+      max-width: 580px;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,162,39,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+    .hero-contacts {
+      margin-top: 3rem;
+      display: flex; gap: 2rem; flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: var(--gold-light); }
+    .contact-item svg { flex-shrink: 0; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 3rem;
+    }
+
+    .section-title span { color: var(--green); }
+
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--green));
+      margin-bottom: 3rem;
+      border-radius: 2px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: white; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--cream);
+      border-left: 3px solid var(--green);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    .about-details { }
+
+    .detail-row {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
+      font-size: 0.95rem;
+    }
+
+    .detail-key {
+      min-width: 130px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .detail-val { color: var(--muted); }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--cream); }
+
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green), var(--gold));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.5rem;
+      top: 8px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid white;
+      box-shadow: 0 0 0 3px var(--green);
+    }
+
+    .timeline-meta {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .timeline-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--green);
+      color: white;
+    }
+
+    .timeline-org {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-period {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .timeline-bullets { list-style: none; }
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    .timeline-bullets li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--gold);
+    }
+
+    /* ─── EDUCATION ─── */
+    #education { background: white; }
+
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
+    .edu-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      background: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .edu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,107,60,0.1); }
+
+    .edu-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+
+    .edu-icon {
+      width: 48px; height: 48px;
+      background: var(--cream);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--dark); margin-bottom: 0.3rem;
+    }
+
+    .edu-school { color: var(--green); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .edu-year { color: var(--muted); font-size: 0.85rem; }
+
+    /* ─── SKILLS ─── */
+    #skills { background: var(--dark); }
+    #skills .section-title { color: white; }
+    #skills .section-label { color: var(--gold-light); }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+
+    .skill-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: all 0.25s;
+    }
+    .skill-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(201,162,39,0.4);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .skill-name { font-weight: 600; color: white; font-size: 0.95rem; margin-bottom: 0.25rem; }
+    .skill-desc { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+
+    /* ─── CERTIFICATES ─── */
+    #certificates { background: var(--cream); }
+
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+    .cert-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid var(--border);
+    }
+    .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+
+    .cert-image-wrap {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .cert-image-wrap img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
+    }
+    .cert-card:hover .cert-image-wrap img { transform: scale(1.04); }
+
+    .cert-overlay {
+      position: absolute; inset: 0;
+      background: rgba(26,107,60,0.7);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.3s;
+      font-size: 0.85rem; font-weight: 600; color: white;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      gap: 8px;
+    }
+    .cert-card:hover .cert-overlay { opacity: 1; }
+
+    .cert-body { padding: 1.5rem; }
+    .cert-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 0.3rem; }
+    .cert-issuer { font-size: 0.85rem; color: var(--green); font-weight: 600; margin-bottom: 0.2rem; }
+    .cert-date { font-size: 0.8rem; color: var(--muted); }
+
+    /* ─── LIGHTBOX ─── */
+    .lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 20px 80px rgba(0,0,0,0.5); }
+    .lightbox-close {
+      position: fixed; top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border: none; border-radius: 50%;
+      color: white; font-size: 1.4rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
+    /* ─── CV VIEWER ─── */
+    #cv { background: white; }
+
+    .cv-viewer-wrapper {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+    }
+
+    .cv-toolbar {
+      background: var(--dark);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .cv-toolbar-title {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .cv-toolbar-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .cv-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: all 0.2s;
+      letter-spacing: 0.03em;
+    }
+
+    .cv-btn-primary { background: var(--gold); color: var(--dark); }
+    .cv-btn-primary:hover { background: var(--gold-light); }
+
+    .cv-btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+    .cv-btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+    /* Inline CV reader */
+    .cv-inline-content {
+      background: #fafafa;
+      padding: 3rem;
+      font-family: 'DM Sans', sans-serif;
+      max-height: 600px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .cv-page {
+      background: white;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      border-radius: 4px;
+    }
+
+    .cv-header-block {
+      border-bottom: 3px solid var(--green);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .cv-name-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-subtitle-line { color: var(--green); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem; }
+
+    .cv-contact-row { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .cv-contact-row a, .cv-contact-row span {
+      font-size: 0.85rem; color: var(--muted);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    .cv-section-head {
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--green);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px; margin-bottom: 1rem; margin-top: 2rem;
+    }
+
+    .cv-obj { color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
+
+    .cv-edu-item { margin-bottom: 1.2rem; }
+    .cv-edu-deg { font-weight: 700; color: var(--dark); font-size: 0.95rem; }
+    .cv-edu-inst { color: var(--green); font-size: 0.88rem; }
+    .cv-edu-yr { color: var(--muted); font-size: 0.82rem; }
+
+    .cv-exp-item { margin-bottom: 1.5rem; }
+    .cv-exp-role { font-weight: 700; color: var(--dark); font-size: 0.95rem; }
+    .cv-exp-org { color: var(--green); font-size: 0.88rem; margin-bottom: 0.2rem; }
+    .cv-exp-period { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+    .cv-exp-bullets { list-style: none; }
+    .cv-exp-bullets li { padding-left: 1rem; position: relative; color: var(--muted); font-size: 0.88rem; margin-bottom: 3px; }
+    .cv-exp-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--gold); }
+
+    .cv-skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .cv-skill-tag {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .cv-ref-item { margin-bottom: 1rem; }
+    .cv-ref-name { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+    .cv-ref-pos { font-size: 0.85rem; color: var(--green); }
+    .cv-ref-contact { font-size: 0.82rem; color: var(--muted); }
+
+    /* ─── HOBBIES ─── */
+    #hobbies { background: var(--cream); }
+
+    .hobby-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .hobby-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .hobby-pill:hover {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--green); }
+    #contact .section-title { color: white; }
+    #contact .section-label { color: var(--gold-light); }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-4px); }
+
+    .contact-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .contact-card-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.5rem; font-weight: 600; }
+    .contact-card-val { color: white; font-weight: 600; font-size: 0.95rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav-links { display: none; flex-direction: column; gap: 1rem; position: fixed; top: 64px; left: 0; right: 0; background: var(--dark); padding: 2rem; }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      section { padding: 60px 5%; }
+      .cv-inline-content { padding: 1rem; }
+      .cv-page { padding: 1.5rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">EN</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#cv">View CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-tag">📚 Educator &amp; STEM Specialist</div>
+    <h1 class="hero-name">Emmanuel<br/><span>Nyanchoka</span></h1>
+    <p class="hero-title">Mathematics &amp; Computer Studies Teacher | Kenya</p>
+    <p class="hero-desc">
+      Dedicated educator passionate about inspiring students through innovative teaching, 
+      critical thinking, and technology integration in STEM fields.
+    </p>
+    <div class="hero-btns">
+      <a href="#cv" class="btn btn-primary">📄 View My CV</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+    <div class="hero-contacts">
+      <a href="tel:+254757394379" class="contact-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.14 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.45-.45a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +254 757 394 379
+      </a>
+      <a href="mailto:nyanchokaemmanuel@gmail.com" class="contact-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        nyanchokaemmanuel@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/emmanuelnyanchoka" target="_blank" class="contact-item">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn Profile
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="fade-in">
+    <p class="section-label">Who I Am</p>
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="about-grid fade-in">
+    <div class="about-text">
+      <p>
+        I am a dedicated Mathematics and Computer Studies teacher with a Bachelor of Education 
+        degree from Pioneer International University (2021–2025). My passion lies in creating 
+        engaging, technology-enriched learning environments that empower students to think critically 
+        and solve real-world problems.
+      </p>
+      <p>
+        With experience spanning classroom instruction, computer training, and curriculum development, 
+        I bring a multifaceted approach to education. I have worked with students of diverse backgrounds 
+        and am committed to ensuring every learner thrives in STEM education.
+      </p>
+      <p>
+        Beyond academics, I am a community-driven individual who values continuous learning, 
+        cultural exploration, and meaningful contribution to society.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Years in Education</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Professional Roles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Core Subjects</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-details">
+      <div class="detail-row"><span class="detail-key">Full Name</span><span class="detail-val">Emmanuel Nyanchoka</span></div>
+      <div class="detail-row"><span class="detail-key">Age</span><span class="detail-val">25 years</span></div>
+      <div class="detail-row"><span class="detail-key">Nationality</span><span class="detail-val">Kenyan</span></div>
+      <div class="detail-row"><span class="detail-key">Languages</span><span class="detail-val">English, Kiswahili</span></div>
+      <div class="detail-row"><span class="detail-key">Religion</span><span class="detail-val">Christian</span></div>
+      <div class="detail-row"><span class="detail-key">Marital Status</span><span class="detail-val">Single</span></div>
+      <div class="detail-row"><span class="detail-key">ID Number</span><span class="detail-val">38288224</span></div>
+      <div class="detail-row"><span class="detail-key">Phone</span><span class="detail-val">+254 757 394 379</span></div>
+      <div class="detail-row"><span class="detail-key">Email</span><span class="detail-val">nyanchokaemmanuel@gmail.com</span></div>
+      <div class="detail-row"><span class="detail-key">Specialization</span><span class="detail-val">Mathematics &amp; Computer Studies</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="fade-in">
+    <p class="section-label">Career Journey</p>
+    <h2 class="section-title">Work <span>Experience</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="timeline fade-in">
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-role">Mathematics &amp; Computer Studies Teacher</span>
+        <span class="timeline-badge">Teaching Practice</span>
+      </div>
+      <div class="timeline-org">Kiburu Boys High School, Kenya</div>
+      <div class="timeline-period">2024 – 2025</div>
+      <ul class="timeline-bullets">
+        <li>Delivered the Mathematics and Computer Studies curriculum to secondary school students.</li>
+        <li>Designed interactive, technology-enriched lessons to improve student comprehension.</li>
+        <li>Provided individualized support to students requiring additional academic assistance.</li>
+        <li>Actively participated in staff meetings and contributed to curriculum improvement initiatives.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-role">Computer Trainer</span>
+        <span class="timeline-badge">Training</span>
+      </div>
+      <div class="timeline-org">KCTC, Kenya</div>
+      <div class="timeline-period">2021 – 2022</div>
+      <ul class="timeline-bullets">
+        <li>Developed and delivered structured lesson plans for practical computer training programs.</li>
+        <li>Trained students in basic computer operations and essential software applications.</li>
+        <li>Designed assessments and evaluated student performance and digital literacy growth.</li>
+        <li>Mentored students on digital literacy skills and career opportunities in technology.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-meta">
+        <span class="timeline-role">Shop Attendant &amp; Cashier</span>
+        <span class="timeline-badge">Retail</span>
+      </div>
+      <div class="timeline-org">Faish Supermarket, Kisii, Kenya</div>
+      <div class="timeline-period">2022 – 2023</div>
+      <ul class="timeline-bullets">
+        <li>Assisted customers with product selection and provided excellent service throughout.</li>
+        <li>Operated POS system and handled cash transactions with accuracy and efficiency.</li>
+        <li>Managed inventory, restocked shelves, and maintained overall store organization.</li>
+        <li>Trained new employees on customer service protocols and standard operating procedures.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="fade-in">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">My <span>Education</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="edu-grid fade-in">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">Bachelor of Education<br/>(Mathematics &amp; Computer Studies)</div>
+      <div class="edu-school">Pioneer International University</div>
+      <div class="edu-year">2021 – 2025 · Nairobi, Kenya</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📘</div>
+      <div class="edu-degree">Kenya Certificate of Secondary Education (KCSE)</div>
+      <div class="edu-school">Kiburu Boys High School</div>
+      <div class="edu-year">2016 – 2020</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📗</div>
+      <div class="edu-degree">Kenya Certificate of Primary Education (KCPE)</div>
+      <div class="edu-school">Nzoia One Academy</div>
+      <div class="edu-year">2015</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-in">
+    <p class="section-label">What I Bring</p>
+    <h2 class="section-title">Skills &amp; <span style="color:var(--gold-light)">Competencies</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="skills-grid fade-in">
+    <div class="skill-card">
+      <div class="skill-icon">📝</div>
+      <div class="skill-name">Lesson Planning</div>
+      <div class="skill-desc">Designing structured, engaging instructional materials and plans</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🏫</div>
+      <div class="skill-name">Classroom Management</div>
+      <div class="skill-desc">Creating an orderly, positive learning environment for students</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <div class="skill-name">Microsoft Office Suite</div>
+      <div class="skill-desc">Word, Excel, PowerPoint and core digital tools proficiency</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📐</div>
+      <div class="skill-name">Curriculum Development</div>
+      <div class="skill-desc">Building and improving syllabi aligned with national standards</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Teamwork &amp; Collaboration</div>
+      <div class="skill-desc">Working effectively within staff and educational teams</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-name">Critical Thinking</div>
+      <div class="skill-desc">Analytical problem-solving and creative instructional approaches</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🗣️</div>
+      <div class="skill-name">Communication</div>
+      <div class="skill-desc">Clear, confident presentation and interpersonal engagement</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⏱️</div>
+      <div class="skill-name">Time Management</div>
+      <div class="skill-desc">Adaptable, punctual, and goal-oriented in all professional settings</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="fade-in">
+    <p class="section-label">Achievements</p>
+    <h2 class="section-title">My <span>Certificates</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="cert-grid fade-in">
+
+    <!-- Certificate from the uploaded image -->
+    <div class="cert-card">
+      <div class="cert-image-wrap" onclick="openLightbox(this)">
+        <img src="My_Certificates__4.jpg" alt="Certificate of Participation – JSS Retooling Program" onerror="this.style.display='none';this.parentElement.style.background='#e8f5ee';this.parentElement.style.minHeight='200px';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='<span style=color:#1a6b3c;font-size:3rem>🏅</span>'"/>
+        <div class="cert-overlay">👁 View Full Certificate</div>
+      </div>
+      <div class="cert-body">
+        <div class="cert-title">Certificate of Participation – JSS Retooling Program</div>
+        <div class="cert-issuer">Pioneer International University</div>
+        <div class="cert-date">April 7–9, 2025 · Serial No: PIU/SEDU/0242</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap" style="background: linear-gradient(135deg, #1a6b3c, #2d9058); min-height:220px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:4rem">🏆</span>
+      </div>
+      <div class="cert-body">
+        <div class="cert-title">Leadership Certificate – Mr. University</div>
+        <div class="cert-issuer">Pioneer International University</div>
+        <div class="cert-date">Served 1 Academic Year</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-image-wrap" style="background: linear-gradient(135deg, #c9a227, #f0c84b); min-height:220px; display:flex; align-items:center; justify-content:center;">
+        <span style="font-size:4rem">📜</span>
+      </div>
+      <div class="cert-body">
+        <div class="cert-title">Educational Development Course</div>
+        <div class="cert-issuer">1 Million Teachers</div>
+        <div class="cert-date">Professional Development</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CV VIEWER -->
+<section id="cv">
+  <div class="fade-in">
+    <p class="section-label">Documents</p>
+    <h2 class="section-title">Read &amp; Download <span>My CV</span></h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="cv-viewer-wrapper fade-in">
+    <div class="cv-toolbar">
+      <div class="cv-toolbar-title">
+        📄 Emmanuel Nyanchoka — Curriculum Vitae
+      </div>
+      <div class="cv-toolbar-actions">
+        <a href="Emmanuel_Nyanchoka_CV.docx" download class="cv-btn cv-btn-primary">⬇ Download CV (.docx)</a>
+        <a href="Emmanuel_Nyanchoka_Resume.docx" download class="cv-btn cv-btn-secondary">⬇ Download Resume</a>
+      </div>
+    </div>
+
+    <div class="cv-inline-content">
+      <div class="cv-page">
+
+        <div class="cv-header-block">
+          <div class="cv-name-big">Emmanuel Nyanchoka</div>
+          <div class="cv-subtitle-line">Mathematics &amp; Computer Studies Educator | Pioneer International University Graduate</div>
+          <div class="cv-contact-row">
+            <span>📞 +254 757 394 379</span>
+            <a href="mailto:nyanchokaemmanuel@gmail.com">✉ nyanchokaemmanuel@gmail.com</a>
+            <span>🇰🇪 Kenyan | Age 25</span>
+            <a href="https://linkedin.com/in/emmanuelnyanchoka" target="_blank">🔗 LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="cv-section-head">Career Objective</div>
+        <p class="cv-obj">
+          Dedicated and passionate Mathematics and Computer Studies teacher seeking to inspire and engage students 
+          through innovative teaching methods and practical applications. Committed to fostering a supportive learning 
+          environment that nurtures critical thinking, problem-solving skills, and technological proficiency to prepare 
+          students for academic success and future careers in STEM fields.
+        </p>
+
+        <div class="cv-section-head">Academic Qualifications</div>
+        <div class="cv-edu-item">
+          <div class="cv-edu-deg">Bachelor of Education (Mathematics &amp; Computer Studies)</div>
+          <div class="cv-edu-inst">Pioneer International University</div>
+          <div class="cv-edu-yr">2021 – 2025 | Relevant Coursework: Educational Technology, Curriculum Development, Assessment Methods</div>
+        </div>
+        <div class="cv-edu-item">
+          <div class="cv-edu-deg">Kenya Certificate of Secondary Education (KCSE)</div>
+          <div class="cv-edu-inst">Kiburu Boys High School</div>
+          <div class="cv-edu-yr">2016 – 2020</div>
+        </div>
+        <div class="cv-edu-item">
+          <div class="cv-edu-deg">Kenya Certificate of Primary Education (KCPE)</div>
+          <div class="cv-edu-inst">Nzoia One Academy</div>
+          <div class="cv-edu-yr">2015</div>
+        </div>
+
+        <div class="cv-section-head">Work Experience</div>
+
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Mathematics &amp; Computer Studies Teacher (Teaching Practice)</div>
+          <div class="cv-exp-org">Kiburu Boys High School, Kenya</div>
+          <div class="cv-exp-period">2024 – 2025</div>
+          <ul class="cv-exp-bullets">
+            <li>Delivered the Mathematics and Computer Studies curriculum.</li>
+            <li>Designed interactive, technology-enriched lessons to improve comprehension.</li>
+            <li>Provided individualized support to students requiring extra assistance.</li>
+            <li>Participated in staff meetings and curriculum improvement initiatives.</li>
+          </ul>
+        </div>
+
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Computer Trainer</div>
+          <div class="cv-exp-org">KCTC, Kenya</div>
+          <div class="cv-exp-period">2021 – 2022</div>
+          <ul class="cv-exp-bullets">
+            <li>Developed and delivered lesson plans for practical computer training.</li>
+            <li>Trained students in basic computer operations and software applications.</li>
+            <li>Designed assessments and evaluated student performance.</li>
+            <li>Mentored students on digital literacy and career skills.</li>
+          </ul>
+        </div>
+
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Shop Attendant &amp; Cashier</div>
+          <div class="cv-exp-org">Faish Supermarket, Kisii, Kenya</div>
+          <div class="cv-exp-period">2022 – 2023</div>
+          <ul class="cv-exp-bullets">
+            <li>Assisted customers with product selection and purchases.</li>
+            <li>Operated POS system and handled cash transactions accurately.</li>
+            <li>Managed inventory and maintained store organization.</li>
+            <li>Trained new employees on customer service and operational procedures.</li>
+          </ul>
+        </div>
+
+        <div class="cv-section-head">Skills</div>
+        <div class="cv-skills-grid">
+          <span class="cv-skill-tag">Lesson Planning</span>
+          <span class="cv-skill-tag">Classroom Management</span>
+          <span class="cv-skill-tag">Microsoft Office Suite</span>
+          <span class="cv-skill-tag">Curriculum Development</span>
+          <span class="cv-skill-tag">Assessment Design</span>
+          <span class="cv-skill-tag">Teamwork</span>
+          <span class="cv-skill-tag">Critical Thinking</span>
+          <span class="cv-skill-tag">Communication</span>
+          <span class="cv-skill-tag">Adaptability</span>
+          <span class="cv-skill-tag">Time Management</span>
+          <span class="cv-skill-tag">Digital Literacy</span>
+          <span class="cv-skill-tag">Problem-Solving</span>
+        </div>
+
+        <div class="cv-section-head">Certifications</div>
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Certificate of Participation – JSS Retooling Program</div>
+          <div class="cv-exp-org">Pioneer International University · April 2025</div>
+        </div>
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Leadership Certificate – Mr. University</div>
+          <div class="cv-exp-org">Pioneer International University · 1 Academic Year</div>
+        </div>
+        <div class="cv-exp-item">
+          <div class="cv-exp-role">Educational Development Course Certificate</div>
+          <div class="cv-exp-org">1 Million Teachers</div>
+        </div>
+
+        <div class="cv-section-head">Languages</div>
+        <div class="cv-skills-grid">
+          <span class="cv-skill-tag">English (Fluent)</span>
+          <span class="cv-skill-tag">Kiswahili (Native)</span>
+        </div>
+
+        <div class="cv-section-head">Hobbies &amp; Interests</div>
+        <div class="cv-skills-grid">
+          <span class="cv-skill-tag">📚 Reading</span>
+          <span class="cv-skill-tag">🤝 Volunteering</span>
+          <span class="cv-skill-tag">✈ Travelling</span>
+          <span class="cv-skill-tag">👗 Fashion &amp; Trends</span>
+          <span class="cv-skill-tag">🍳 Cooking</span>
+        </div>
+
+        <div class="cv-section-head">References</div>
+        <div class="cv-ref-item">
+          <div class="cv-ref-name">Eng. Caleb</div>
+          <div class="cv-ref-pos">Manager &amp; Owner, KCTC</div>
+          <div class="cv-ref-contact">📞 0725948877</div>
+        </div>
+        <div class="cv-ref-item">
+          <div class="cv-ref-name">Mr. Jared Anyona</div>
+          <div class="cv-ref-pos">Manager, Faish Supermarket</div>
+          <div class="cv-ref-contact">📞 0110234141</div>
+        </div>
+        <div class="cv-ref-item">
+          <div class="cv-ref-name">Mr. Obwoge</div>
+          <div class="cv-ref-pos">HOD Academics, Kiburu Boys High School</div>
+          <div class="cv-ref-contact">📞 +254 782 595 159</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+  <div class="fade-in">
+    <p class="section-label">Outside the Classroom</p>
+    <h2 class="section-title">Hobbies &amp; <span>Interests</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="hobby-grid fade-in">
+    <div class="hobby-pill">📚 Reading &amp; Continuous Learning</div>
+    <div class="hobby-pill">🤝 Volunteering &amp; Community Engagement</div>
+    <div class="hobby-pill">👗 Exploring Fashion &amp; Trends</div>
+    <div class="hobby-pill">✈️ Travelling &amp; Cultural Exploration</div>
+    <div class="hobby-pill">🍳 Cooking</div>
+    <div class="hobby-pill">🎓 Professional Development</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-label">Reach Out</p>
+    <h2 class="section-title">Get In <span style="color:var(--gold-light)">Touch</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="contact-grid fade-in">
+    <a href="tel:+254757394379" class="contact-card">
+      <div class="contact-card-icon">📞</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">+254 757 394 379</div>
+    </a>
+    <a href="mailto:nyanchokaemmanuel@gmail.com" class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">nyanchokaemmanuel@gmail.com</div>
+    </a>
+    <a href="https://linkedin.com/in/emmanuelnyanchoka" target="_blank" class="contact-card">
+      <div class="contact-card-icon">🔗</div>
+      <div class="contact-card-label">LinkedIn</div>
+      <div class="contact-card-val">linkedin.com/in/emmanuelnyanchoka</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-card-icon">🇰🇪</div>
+      <div class="contact-card-label">Location</div>
+      <div class="contact-card-val">Kenya</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Emmanuel Nyanchoka</span> · Mathematics &amp; Computer Studies Educator · Built with ❤️ in Kenya</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="Certificate"/>
+</div>
+
+<script>
+  // Hamburger menu
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Close nav on link click (mobile)
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Lightbox
+  function openLightbox(wrapper) {
+    const img = wrapper.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
